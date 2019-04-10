@@ -49,3 +49,16 @@ docker attach ${CONTAINER}
 ```
 
 [about_Dockerfile](http://docs.docker.jp/engine/reference/builder.html)
+
+***
+
+## push to docker
+```sh
+# login to docker hub
+docker login
+# tag
+docker tag ${image}[:${tag}] ${push_image}[:${tag}]
+# push
+docker push ${push_image}[:${tag}]
+```
+***
