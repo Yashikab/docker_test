@@ -25,8 +25,8 @@ RUN apt-get update && apt-get install -y \
     libsqlite3-dev \
     zlib1g-dev \
     automake \
-    python 
-    # python3-pip \
+    python \
+    python-pip
     # libboost-python-dev \
     # graphviz \ 
     # g++ \
@@ -45,6 +45,13 @@ RUN echo 'eval "$(pyenv init -)"' >> ~/.bashrc && \
     eval "$(pyenv init -)"
 RUN pyenv install 3.6.8
 RUN pyenv global 3.6.8
+RUN pyenv rehash
+
+
+# upgrade pip
+ADD ./requirements.txt /root/requirements.txt
+RUN /root/.pyenv/shims/pip install --upgrade pip
+RUN /root/.pyenv/shims/pip install -r /root/requirements.txt
 
 # codec
 WORKDIR /
