@@ -110,7 +110,7 @@ sudo pkill -SIGHUP dockerd
 docker run --runtime=nvidia --rm nvidia/cuda:9.0-base nvidia-smi
 ```
 
---runtime=nvidia ?GPU???
+--runtime=nvidia: GPU on
 
 [reference](https://github.com/NVIDIA/nvidia-docker)
 
